@@ -42,40 +42,31 @@
 {\fontsize{8.5bp}{11bp}\selectfont Open to Relocation\sep H-1B Transfer\sep\href{mailto:qianbihan@gmail.com}{qianbihan@gmail.com}\sep(646)~350-9785\sep\href{https://www.linkedin.com/in/bihan-q-9a5517250}{linkedin.com/in/bihan-q-9a5517250}\sep\href{https://bb.style/}{bb.style}\par}}
 
 \heading{SUMMARY}
-AI Engineer specializing in production LLM agents, MCP tool platforms, and evaluation-driven releases; builds secure, reliable ML/data systems with Python, SQL, and GCP.\par
+AI engineer who builds production AI systems end to end and proves their impact with measurement. At an energy trading company, built the data foundation and then the AI layer on top of it: an MCP agent platform adopted daily by 82\% of employees, with automated evaluations gating every release, and a forecasting system that outperformed the commercial vendor by 17\% and generated +\$330K/year in incremental P\&L. Combines statistical rigor (Columbia M.A. in Statistics) with end-to-end ownership from user research to production.\par
 
 \heading{WORK EXPERIENCE}
 \name{Guzman Energy LLC\sep AI Engineer}\when{Feb 2025 - Present}
 \begin{itemize}
-  \item Architected a company-wide Claude/MCP platform with OAuth/OIDC/IAM, policy-bound tool/data access and OpenTelemetry; supported 33K+ agent calls and 8.4K MCP calls (Aug MTD) at 99.87\% platform reliability.
-  \item Designed two-tier MCP evaluations for new tools, tables and connectors: release gates for task success, regressions, data/permissions and tool calls; defined KPIs for cost/tokens per success, redundant calls, P95 latency and adoption.
-  \item Built \textasciitilde{}30-service AEGIS backend and shipped 8+ AI apps/Agent Skills for incident remediation, code review and automation; served 86 users and 20 traders with 98\% first-notice reliability and human approval for irreversible actions.
-  \item Rebuilt BigQuery editing as a transactional, human-approved AI workflow with scope controls, concurrency checks, staged writes, audit trails and rollback.
-  \item Built an autonomous research engine with multi-model review, frozen benchmarks, A/A controls, leak-safe holdouts and falsification gates; evaluated 338 experiments with human owner gates.
-  \item Productionized 8-entity Chronos-2 probabilistic forecasting on 137 Cloud Run jobs/155 schedulers, including 34 GPU retraining jobs; produced hourly p10--p90 predictions and a 37.9M-row forecast history benchmarked against vendors.
-  \item Architected Garden evaluations across publication/run checks, LLM health reviews, point-in-time replay, matched-pair MAE/Pinball A/B, day-blocked 95\% CIs and preregistered out-of-sample Idea/Strategy validation.
-  \item Built hybrid retrieval over 300+ BigQuery tables and 80 views using vector/lexical search, RRF and BM25F; led AI-workflow adoption in 10 departments (\textasciitilde{}90\% of users).
-  \item Built real-time NOAA HRRR/GFS ingestion on Cloud Run/Pub/Sub with schema evolution, replay and late-data recovery, producing 57.9M historical weather records.
+  \item Built and own the company's AI data layer: a unified MCP server that lets AI agents query 55 internal data sources under each user's own identity (OAuth2/OIDC) with per-user access control and audit logs, plus read/write warehouse servers with per-query byte limits. It serves \textasciitilde{}130K tool calls/month across all 10 departments with zero cost overruns.
+  \item Drove adoption from 0 to 82\% of employees daily active in two months: ran company-wide AI office hours, showed each department where agents create value, and worked hands-on with non-engineers to build their own pipelines, dashboards, and analytics. Led weekly AI research discussions with the engineering team.
+  \item Made every AI release measurable: designed the evaluation harness that gates each MCP tool change with 54 regression and 76 capability tasks drawn from real incidents, scored by an LLM judge. Used it to raise the capability pass rate from 36\% to 87\% in 4 months while cutting cost per task 68\%.
+  \item Shipped and own an agent-driven forecasting system (Chronos-2 fine-tuned with LoRA) that feeds the automated bid-submission platform. Proved it in a daily parallel run against the commercial vendor: 17\% lower forecast error (MAE) on average (24\% at best), +\$330K/yr in P\&L, and 99.99\% on-time bid submission over 7 months.
+  \item Built the RAG system over the internal knowledge base (hybrid BM25 + vector retrieval, cross-encoder reranking), raising Recall@10 from 0.35 to 0.96 and MRR@10 from 0.25 to 0.78.
+  \item Designed, built, and launched 8 internal production apps as the sole developer in 6 months (TypeScript, FastAPI, CloudSQL, GCP): gathered requirements in cross-department meetings and designed each app with its end users around their needs, reaching 103 users with 90\% retention.
 \end{itemize}
 \name{Guzman Energy LLC\sep Data Engineer}\when{Apr 2024 - Feb 2025}
 \begin{itemize}
-  \item Built 100+ production GCP/AWS data pipelines and governed time-series feeds, including 180M SCADA observations and 457M OASIS transmission offerings.
-  \item Standardized CI/CD and observability across 237 Cloud Run services for 10+ engineers, reducing time-to-detect to under 1 minute; operated an Airflow/Cloud Composer forecasting fleet for 7 utilities with automated monitoring and model interpretability.
-\end{itemize}
-\name{Guzman Energy LLC\sep Data Scientist Intern}\when{Feb 2024 - Apr 2024}
-\begin{itemize}
-  \item Developed and evaluated XGBoost wind-generation forecasting for a 300 MW wind farm using weather data.
+  \item Built the data foundation the company's AI layer now runs on: 100+ idempotent production pipelines unifying the trading desk's market data (SCADA, OASIS transmission, NAESB e-tags, nodal prices, revenue meters; 3.5B+ rows) into one governed BigQuery source used daily by 74+ employees; 42\% of the pipelines have run for 2 years with no code changes.
+  \item Kept it reliable and cheap to run: schema contract tests on every pipeline, partitioned tables to cap scan cost, CI/CD with automated code review across 237 Cloud Run services, and alerting that surfaces production failures in under 1 minute; resolved \textasciitilde{}100 urgent data incidents a year in \textasciitilde{}30 minutes on average.
 \end{itemize}
 
 \heading{SKILLS}
-\name{Languages / Frameworks:} Python, SQL, TypeScript/JavaScript, FastAPI, React, REST APIs, PyTorch, Hugging Face Transformers, XGBoost\par
+\name{Tools \& Languages:} Claude Code, Codex, Python, TypeScript, React, Node.js, SQL, REST, OAuth, OTel, GCP, AWS\par
 \vspace{1bp}
-\name{Agentic AI / Evaluation:} MCP, RAG, tool/function calling, multi-agent workflows, LLM evaluation, holdout/OOS, A/A tests, shadow/champion, human-in-the-loop\par
-\vspace{1bp}
-\name{Cloud / Data / Reliability:} BigQuery, model serving, retraining, GCP (Cloud Run, Functions, Pub/Sub, GCS, Vertex AI), AWS/S3, Docker, Terraform, GitHub Actions, CI/CD, OAuth/OIDC/IAM, OpenTelemetry, Airflow\par
+\name{LLM Systems:} Claude/OpenAI APIs, tool \& MCP, RAG, evals, context management, sandboxed execution, LoRA fine-tuning, event-driven pipelines\par
 
 \heading{EDUCATION}
 \name{Columbia University}\sep M.A., Statistics\when{Aug 2022 - Dec 2023}
 \vspace{1bp}
-\name{Denison University}\sep B.A., Mathematics\when{Aug 2017 - Dec 2020}
+\name{Denison University}\sep B.A., Mathematics\sep magna cum laude, Dean's List\when{Aug 2017 - Dec 2020}
 \end{document}
