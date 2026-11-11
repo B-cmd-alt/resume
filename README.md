@@ -16,12 +16,12 @@ The PDF is named `Bihan_Qian_Resume.pdf`; it is not committed.
 ## Layout the tailoring tool relies on
 
 The personal MCP server (`tools/resume.py`) reads the newest commit of `main` and tailors this file to a job: it
-rewrites the summary and reorders bullets and skills, keeping every other word. It needs:
+rewrites the summary and reorders the bullets within each role, keeping every other word and the bold as written here. It needs:
 
 - a `\heading{SUMMARY}` section whose text ends in `\par`;
 - a `\name{...}` title over each `itemize` of `\item` bullets;
 - skills lines written `\name{Label:} item, item, ...\par`;
-- no `\textbf` in the bullets or skills;
+- bold in the bullets or skills written as `\textbf{...}` around plain words (it is the same for every job);
 - the body's 13bp line height, which is `LINE_PT` in `tools/resume.py` (change both together).
 
 The repo is public because the server reads it without a token.
