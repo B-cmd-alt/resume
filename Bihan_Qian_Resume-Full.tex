@@ -1,0 +1,81 @@
+% Bihan Qian's resume. Build: SOURCE_DATE_EPOCH=0 tectonic -X compile Bihan_Qian_Resume-Full.tex
+\documentclass[letterpaper]{article}
+\usepackage[left=0.6in, right=0.6in, top=0.5in, bottom=0.4in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{tgheros}
+\renewcommand{\familydefault}{\sfdefault}
+% No kerning or ligatures after letters and digits: text extractors in application systems read a kerned
+% "OpenTelemetry" as "OpenT elemetry". TeX Gyre Heros through T1 also keeps word gaps readable, which its OpenType
+% version doesn't on tight lines ("Builthybridretrieval"), so don't switch to fontspec.
+\XeTeXinterchartokenstate=1
+\newXeTeXintercharclass\nokern
+\count255=`A \loop\XeTeXcharclass\count255=\nokern\ifnum\count255<`Z \advance\count255 by 1 \repeat
+\count255=`a \loop\XeTeXcharclass\count255=\nokern\ifnum\count255<`z \advance\count255 by 1 \repeat
+\count255=`0 \loop\XeTeXcharclass\count255=\nokern\ifnum\count255<`9 \advance\count255 by 1 \repeat
+\XeTeXinterchartoks\nokern 0={\kern0pt}
+\XeTeXinterchartoks\nokern\nokern={\kern0pt}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{
+  pdfauthor={Bihan Qian},
+  pdftitle={Bihan Qian | AI Engineer},
+}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\raggedright
+\setlist{nosep, label=\textbullet, leftmargin=12.9bp, labelsep=7bp, topsep=0.5bp, itemsep=1.2bp, after=\endgraf\addvspace{2.5bp}}
+
+\newcommand{\sep}{\enspace|\enspace}
+\newcommand{\name}[1]{{\bfseries#1}}
+\newcommand{\when}[1]{\hfill#1\par}
+\newcommand{\heading}[1]{\addvspace{4.5bp}{\fontsize{11bp}{13bp}\selectfont\bfseries#1\par}
+  \vspace{3.5bp}\hrule\vspace{5bp}}
+
+\begin{document}
+% The body's line height (13bp) is LINE_PT in tools/resume.py: change both together.
+\fontsize{10.5bp}{13bp}\selectfont
+
+{\centering
+{\fontsize{20bp}{24bp}\selectfont\bfseries Bihan Qian\par}
+\vspace{3bp}
+{\fontsize{8.5bp}{11bp}\selectfont Open to Relocation\sep H-1B Transfer\sep\href{mailto:qianbihan@gmail.com}{qianbihan@gmail.com}\sep(646)~350-9785\sep\href{https://www.linkedin.com/in/bihan-q-9a5517250}{linkedin.com/in/bihan-q-9a5517250}\sep\href{https://bb.style/}{bb.style}\par}}
+
+\heading{SUMMARY}
+AI Engineer specializing in production LLM agents, MCP tool platforms, and evaluation-driven releases; builds secure, reliable ML/data systems with Python, SQL, and GCP.\par
+
+\heading{WORK EXPERIENCE}
+\name{Guzman Energy LLC\sep AI Engineer}\when{Feb 2025 - Present}
+\begin{itemize}
+  \item Architected a company-wide Claude/MCP platform with OAuth/OIDC/IAM, policy-bound tool/data access and OpenTelemetry; supported 33K+ agent calls and 8.4K MCP calls (Aug MTD) at 99.87\% platform reliability.
+  \item Designed two-tier MCP evaluations for new tools, tables and connectors: release gates for task success, regressions, data/permissions and tool calls; defined KPIs for cost/tokens per success, redundant calls, P95 latency and adoption.
+  \item Built \textasciitilde{}30-service AEGIS backend and shipped 8+ AI apps/Agent Skills for incident remediation, code review and automation; served 86 users and 20 traders with 98\% first-notice reliability and human approval for irreversible actions.
+  \item Rebuilt BigQuery editing as a transactional, human-approved AI workflow with scope controls, concurrency checks, staged writes, audit trails and rollback.
+  \item Built an autonomous research engine with multi-model review, frozen benchmarks, A/A controls, leak-safe holdouts and falsification gates; evaluated 338 experiments with human owner gates.
+  \item Productionized 8-entity Chronos-2 probabilistic forecasting on 137 Cloud Run jobs/155 schedulers, including 34 GPU retraining jobs; produced hourly p10--p90 predictions and a 37.9M-row forecast history benchmarked against vendors.
+  \item Architected Garden evaluations across publication/run checks, LLM health reviews, point-in-time replay, matched-pair MAE/Pinball A/B, day-blocked 95\% CIs and preregistered out-of-sample Idea/Strategy validation.
+  \item Built hybrid retrieval over 300+ BigQuery tables and 80 views using vector/lexical search, RRF and BM25F; led AI-workflow adoption in 10 departments (\textasciitilde{}90\% of users).
+  \item Built real-time NOAA HRRR/GFS ingestion on Cloud Run/Pub/Sub with schema evolution, replay and late-data recovery, producing 57.9M historical weather records.
+\end{itemize}
+\name{Guzman Energy LLC\sep Data Engineer}\when{Apr 2024 - Feb 2025}
+\begin{itemize}
+  \item Built 100+ production GCP/AWS data pipelines and governed time-series feeds, including 180M SCADA observations and 457M OASIS transmission offerings.
+  \item Standardized CI/CD and observability across 237 Cloud Run services for 10+ engineers, reducing time-to-detect to under 1 minute; operated an Airflow/Cloud Composer forecasting fleet for 7 utilities with automated monitoring and model interpretability.
+\end{itemize}
+\name{Guzman Energy LLC\sep Data Scientist Intern}\when{Feb 2024 - Apr 2024}
+\begin{itemize}
+  \item Developed and evaluated XGBoost wind-generation forecasting for a 300 MW wind farm using weather data.
+\end{itemize}
+
+\heading{SKILLS}
+\name{Languages / Frameworks:} Python, SQL, TypeScript/JavaScript, FastAPI, React, REST APIs, PyTorch, Hugging Face Transformers, XGBoost\par
+\vspace{1bp}
+\name{Agentic AI / Evaluation:} MCP, RAG, tool/function calling, multi-agent workflows, LLM evaluation, holdout/OOS, A/A tests, shadow/champion, human-in-the-loop\par
+\vspace{1bp}
+\name{Cloud / Data / Reliability:} BigQuery, model serving, retraining, GCP (Cloud Run, Functions, Pub/Sub, GCS, Vertex AI), AWS/S3, Docker, Terraform, GitHub Actions, CI/CD, OAuth/OIDC/IAM, OpenTelemetry, Airflow\par
+
+\heading{EDUCATION}
+\name{Columbia University}\sep M.A., Statistics\when{Aug 2022 - Dec 2023}
+\vspace{1bp}
+\name{Denison University}\sep B.A., Mathematics\when{Aug 2017 - Dec 2020}
+\end{document}
