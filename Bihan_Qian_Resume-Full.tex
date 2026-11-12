@@ -57,18 +57,18 @@ AI engineer who builds production AI systems end to end and proves their impact 
 \end{itemize}
 \name{Guzman Energy LLC\sep Data Engineer}\when{Apr 2024 - Feb 2025}
 \begin{itemize}
-  \item Built the \textbf{data foundation} the company's AI layer now runs on: 100+ idempotent production pipelines unifying the trading desk's market data (SCADA, OASIS transmission, NAESB e-tags, nodal prices, revenue meters; 3.5B+ rows) into one governed BigQuery source used daily by 74+ employees; 40+ have run 2 years with no code changes.
+  \item Built the \textbf{data foundation} the company's AI layer now runs on: 100+ idempotent production pipelines unifying the trading desk's market data (SCADA, OASIS transmission, NAESB e-tags, nodal prices, revenue meters; \textbf{3.5B+ rows}) into one governed BigQuery source used daily by 74+ employees; 40+ have run 2 years unchanged.
   \item Kept it \textbf{reliable and cheap} to run: schema contract tests on every pipeline, partitioned tables to cap scan cost, CI/CD with automated code review across 237 Cloud Run services, and alerting that surfaces production failures in under 1 minute; resolved \textasciitilde{}100 urgent data incidents a year in \textasciitilde{}30 minutes on average.
 \end{itemize}
 
 \heading{PROJECTS}
-\name{PipelineAgent}\sep Self-Healing Data Pipeline Monitor\when{\href{https://b-cmd-alt.github.io/pipelineagent/}{Live Dashboard}\sep\href{https://github.com/B-cmd-alt/pipelineagent}{Code}}
+\name{Self-Evolving Pipeline Agent}\sep Autonomous Data Pipeline Repair\when{\href{https://b-cmd-alt.github.io/pipelineagent/}{Live Dashboard}\sep\href{https://github.com/B-cmd-alt/pipelineagent}{Code}}
 \begin{itemize}
-  \item Autonomous agent that checks 8 live data feeds hourly, repairs broken pipelines through its own gated pull requests, and automatically reverts and escalates any fix that does not hold.
+  \item Agent that watches 8 live data feeds hourly, repairs broken pipelines through its own gated pull requests, and \textbf{evolves itself}: real incidents become new replay evals, and weekly self-injected faults re-test the loop.
 \end{itemize}
-\name{Memory System Evaluator}\sep Open Benchmark for Agent Memory\when{\href{https://memory-evaluator-862698383291.us-central1.run.app}{Live Demo}\sep\href{https://github.com/B-cmd-alt/memory-evaluator}{Code}}
+\name{Memory System Benchmark}\sep Open Evaluation of Agent Memory\when{\href{https://memory-evaluator-862698383291.us-central1.run.app}{Live Demo}\sep\href{https://github.com/B-cmd-alt/memory-evaluator}{Code}}
 \begin{itemize}
-  \item Open benchmark comparing 11 agent-memory systems and baselines (Mem0, Zep/Graphiti, GraphRAG, A-MEM) with one model, one embedder, and one calibrated LLM judge across six evaluation axes.
+  \item Open benchmark of 11 agent-memory systems (Mem0, Zep/Graphiti, GraphRAG, A-MEM) on one model, one embedder, and one \textbf{calibrated LLM judge}; none beats plain full context on recall, while write cost varies 39x.
 \end{itemize}
 
 \heading{SKILLS}
